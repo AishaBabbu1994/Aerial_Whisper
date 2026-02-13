@@ -13,7 +13,7 @@ def load_whisper_model():
     return whisper.load_model("base")
 
 if uploaded_file:
-    # Guarda temporalmente
+    # Guarda temporalmente el archivo
     with tempfile.NamedTemporaryFile(delete=False, suffix=os.path.splitext(uploaded_file.name)[1]) as tmp_file:
         tmp_file.write(uploaded_file.getvalue())
         tmp_path = tmp_file.name
@@ -38,5 +38,5 @@ if uploaded_file:
         )
         
     finally:
-        # Limpia
+        # Limpia siempre
         os.unlink(tmp_path)
